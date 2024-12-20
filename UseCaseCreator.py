@@ -235,12 +235,15 @@ user_guide = """
 - Use `<<Actor>>` to define actors.
 - Define relationships using `->` for solid lines.
 - Use `-->` to define relationships with dashed lines.
+- Example:
+- `<<Actor>>` User `->` Click
+- Click `-->` Starts
 """
 
 with gr.Blocks() as app:
     with gr.Tab("Diagram Generator"):
         gr.Markdown("# Use Case Diagram Generator")
-        ascii_input = gr.TextArea(label="ASCII Input", lines=15)
+        ascii_input = gr.TextArea(label="ASCII Input", lines=15, placeholder="<<Actor>> User -> Click\nClick --> Starts")
         diagram_title = gr.Textbox(label="Diagram Title", placeholder="Optional Title")
         actor_position = gr.Radio(["top-center", "center-left"], label="Actor Layout", value="top-center")
         format_choice = gr.Radio(["png", "pdf"], label="Output Format", value="png")
