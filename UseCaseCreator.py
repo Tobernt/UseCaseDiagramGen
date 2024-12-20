@@ -4,7 +4,7 @@ import gradio as gr
 from matplotlib.patches import Ellipse
 import math
 
-def adjust_arrow_positions(pos, edge, width=200, height=80):
+def adjust_arrow_positions(pos, edge, width=400, height=160):
     """
     Adjusts arrow positions so they start and end at the edges of the ellipses.
     """
@@ -37,7 +37,7 @@ def fit_text_in_ellipse(ax, text, x, y, ellipse_width, font_size=12, min_font_si
     temp_text.remove()
     ax.text(x, y, text, ha="center", va="center", fontsize=font_size, fontweight="bold")
 
-def calculate_tree_positions(nodes, edges, actor_position="top-center", width=200, height=80, spacing_factor=1.2):
+def calculate_tree_positions(nodes, edges, actor_position="top-center", width=200, height=80, spacing_factor=1.5):
     """
     Calculates tree-based positions for nodes, dynamically placing actors closest to their connected nodes.
     """
@@ -152,8 +152,8 @@ def generate_use_case_diagram(ascii_description, diagram_title, actor_position="
         else:
             nodes.add(line.strip())
 
-    ellipse_width = 300  # Ellipse width in pixels
-    ellipse_height = 120  # Ellipse height in pixels
+    ellipse_width = 400  # Ellipse width in pixels
+    ellipse_height = 160  # Ellipse height in pixels
 
     pos = calculate_tree_positions(list(nodes), edges, actor_position=actor_position, width=ellipse_width, height=ellipse_height)
 
